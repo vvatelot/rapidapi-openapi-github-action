@@ -1,0 +1,14 @@
+{
+  "name": "go-rapidapi-doc-update",
+  "version": "1.0.0",
+  "description": "Github action to auto update RapidAPI OpenAPI documentation",
+  "main": "index.js",
+  "repository": "git@github.com:vvatelot/rapidapi-openapi-github-action.git",
+  "author": "Vincent Vatelot <vincent.vatelot@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "unirest": "^0.6.0"
+  }
+}

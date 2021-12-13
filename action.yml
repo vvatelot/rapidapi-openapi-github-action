@@ -1,0 +1,23 @@
+# action.yml
+name: 'RapidAPI OpenAPI'
+description: 'Auto update RapidAPI OpenAPI documentation'
+inputs:
+  rapidapi-api-key:
+    description: 'Your RapiAPI API Key'
+    required: true
+    default: ${{ secrets.RAPIDAPI_API_KEY }}
+  rapidapi-api-id:
+    description: 'Your RapiAPI API ID'
+    required: true
+    default: ${{ secrets.RAPIDAPI_API_ID }}
+  openapi-file:
+    description: 'Your OpenAPI file to use for update'
+    required: false
+    default: 'openapi.json'
+  default-server-url:
+    description: 'You can provide a default server url'
+    required: false
+    default: ''
+runs:
+  using: 'node12'
+  main: 'index.js'
