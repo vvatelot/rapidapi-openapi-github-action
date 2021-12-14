@@ -5,11 +5,11 @@ inputs:
   rapidapi-api-key:
     description: 'Your RapiAPI API Key'
     required: true
-    default: ${{ secrets.RAPIDAPI_API_KEY }}
+    default: ''
   rapidapi-api-id:
     description: 'Your RapiAPI API ID'
     required: true
-    default: ${{ secrets.RAPIDAPI_API_ID }}
+    default: ''
   openapi-file:
     description: 'Your OpenAPI file to use for update'
     required: false

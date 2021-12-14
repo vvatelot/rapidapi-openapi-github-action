@@ -6,11 +6,11 @@ This action updates the OpenAPI documentation of an API that is hosted by RapidA
 
 ## `rapidapi-api-key`
 
-**Optional** Your RapidAPI API Key. Default `${{ secrets.RAPIDAPI_API_KEY }}`.
+**Optional** Your RapidAPI API Key.
 
 ## `rapidapi-api-id`
 
-**Optional** Your RapidAPI API ID. Default `${{ secrets.RAPIDAPI_API_ID }}`.
+**Optional** Your RapidAPI API ID.
 
 ## `openapi-file`
 
@@ -25,8 +25,22 @@ This action updates the OpenAPI documentation of an API that is hosted by RapidA
 ## Example usage
 
 ```
-uses: github.com/vvatelot/rapidapi-openapi-github-action
-with:
-  openapi-file: "my-openapi.json"
-  default-url-server: "https://my.api.com:8001/"
+name: Update OpenAPI RapidAPI documentation
+on:
+  schedule:
+    # https://crontab.guru/every-night-at-midnight
+    - cron: "0 0 * * *"
+
+jobs:
+  update-rapidapi-openapi:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: RapidAPI OpenAPI
+      uses: vvatelot/rapidapi-openapi-github-action@0.0.1
+      with:
+        rapidapi-api-key: ${{ secrets.RAPIDAPI_API_KEY }}
+        rapidapi-api-id: ${{ secrets.RAPIDAPI_API_ID }}
+        openapi-file: "my-openapi.json"
+        default-url-server: "https://my.api.com:8001/"
 ```
