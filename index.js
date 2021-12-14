@@ -24,7 +24,7 @@ try {
     .attach("file", fileName)
     .end(function (result) {
       if (result.error) {
-        core.setFailed(error.message);
+        core.setFailed(result.error);
       }
       console.log(result.status, result.headers, result.body);
     });
