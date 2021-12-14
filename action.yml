@@ -1,6 +1,9 @@
 # action.yml
 name: 'RapidAPI OpenAPI'
 description: 'Auto update RapidAPI OpenAPI documentation'
+branding:
+  icon: 'upload-cloud'
+  color: 'blue'
 inputs:
   rapidapi-api-key:
     description: 'Your RapiAPI API Key'
