@@ -1,31 +1,31 @@
 const core = require("@actions/core");
 const unirest = require("unirest");
-const fs = require("fs");
+const editJsonFile = require("edit-json-file");
 
 try {
-  const API_URL =
+  const rapidApiUrl =
     "https://openapi-provisioning.p.rapidapi.com/v1/apis/" +
     core.getInput("rapidapi-api-id");
+  const serverDefaultUrl = core.getInput("default-server-url");
   const fileName = core.getInput("openapi-file");
 
-  if (core.getInput("default-server-url") != "") {
-    const file = require("./" + fileName);
-    file.servers = {
-      url: core.getInput("default-server-url"),
-    };
-    fs.writeFile(fileName, JSON.stringify(file), function writeJSON(err) {
-      if (err) return console.log(err);
-      console.log(JSON.stringify(file));
-      console.log("Updating servers to " + fileName);
-    });
+  if (serverDefaultUrl != "") {
+    let file = editJsonFile(fileName);
+    file.append("servers", { url: serverDefaultUrl });
+    file.save();
+    console.log("Updating servers to " + fileName);
+    console.log(file.toObject());
   }
 
   unirest
-    .put(API_URL)
+    .put(rapidApiUrl)
     .header("X-RapidAPI-Key", core.getInput("rapidapi-api-key"))
     .header({ "Content-Type": "multipart/form-data" })
     .attach("file", fileName)
     .end(function (result) {
+      if (result.error) {
+        core.setFailed(error.message);
+      }
       console.log(result.status, result.headers, result.body);
     });
 } catch (error) {

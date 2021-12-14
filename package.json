@@ -9,6 +9,7 @@
   "private": false,
   "dependencies": {
     "@actions/core": "^1.6.0",
+    "edit-json-file": "^1.6.2",
     "unirest": "^0.6.0"
   }
 }
