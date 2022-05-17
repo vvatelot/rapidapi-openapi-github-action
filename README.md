@@ -24,7 +24,7 @@ This action updates the OpenAPI documentation of an API that is hosted by RapidA
 
 ## Example usage
 
-```
+```yml
 name: Update OpenAPI RapidAPI documentation
 on:
   schedule:
@@ -37,7 +37,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: RapidAPI OpenAPI
-      uses: vvatelot/rapidapi-openapi-github-action@0.0.1
+      uses: vvatelot/rapidapi-openapi-github-action@v1.1.0
       with:
         rapidapi-api-key: ${{ secrets.RAPIDAPI_API_KEY }}
         rapidapi-api-id: ${{ secrets.RAPIDAPI_API_ID }}
