@@ -1,6 +1,6 @@
 {
-  "name": "go-rapidapi-doc-update",
-  "version": "1.0.0",
+  "name": "rapidapi-doc-update",
+  "version": "1.2.0",
   "description": "Github action to auto update RapidAPI OpenAPI documentation",
   "main": "index.js",
   "repository": "git@github.com:vvatelot/rapidapi-openapi-github-action.git",
@@ -9,7 +9,8 @@
   "private": false,
   "dependencies": {
     "@actions/core": "^1.8.2",
+    "axios": "^0.27.2",
     "edit-json-file": "^1.7.0",
-    "unirest": "^0.6.0"
+    "form-data": "^4.0.0"
   }
 }
