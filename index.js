@@ -1,6 +1,8 @@
 const core = require("@actions/core");
-const unirest = require("unirest");
 const editJsonFile = require("edit-json-file");
+const FormData = require("form-data");
+const fs = require("fs");
+const axios = require("axios");
 
 try {
   const rapidApiUrl =
@@ -17,17 +19,24 @@ try {
     console.log(file.toObject());
   }
 
-  unirest
-    .put(rapidApiUrl)
-    .header("X-RapidAPI-Key", core.getInput("rapidapi-api-key"))
-    .header({ "Content-Type": "multipart/form-data" })
-    .attach("file", fileName)
-    .end(function (result) {
-      if (result.error) {
-        core.setFailed(result.error);
-      }
-      console.log(result.status, result.headers, result.body);
-    });
+  const data = new FormData();
+  data.append("file", fs.createReadStream(fileName));
+
+  const options = {
+    method: 'PUT',
+    url: rapidApiUrl,
+    headers: {
+      'X-RapidAPI-Key': core.getInput("rapidapi-key"),
+      ...data.getHeaders()
+    },
+    data: data
+  };
+
+  axios.request(options).then(function (response) {
+    console.log(response);
+  }).catch(function (error) {
+    core.setFailed(error.message);
+  })
 } catch (error) {
   core.setFailed(error.message);
 }
