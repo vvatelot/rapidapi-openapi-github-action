@@ -37,7 +37,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: RapidAPI OpenAPI
-      uses: vvatelot/rapidapi-openapi-github-action@v1.2.0
+      uses: vvatelot/rapidapi-openapi-github-action@v1.3.0
       with:
         rapidapi-api-key: ${{ secrets.RAPIDAPI_API_KEY }}
         rapidapi-api-id: ${{ secrets.RAPIDAPI_API_ID }}
