@@ -5,8 +5,9 @@ const fs = require("fs");
 const axios = require("axios");
 
 try {
+  const rapidApiUrlHost = 'openapi-provisioning.p.rapidapi.com';
   const rapidApiUrl =
-    "https://openapi-provisioning.p.rapidapi.com/v1/apis/" +
+    "https://" + rapidApiUrlHost + "/v1/apis/" +
     core.getInput("rapidapi-api-id");
   const serverDefaultUrl = core.getInput("default-server-url");
   const fileName = core.getInput("openapi-file");
@@ -27,6 +28,7 @@ try {
     url: rapidApiUrl,
     headers: {
       'X-RapidAPI-Key': core.getInput("rapidapi-key"),
+      'X-RapidAPI-Host': rapidApiUrlHost,
       ...data.getHeaders()
     },
     data: data
