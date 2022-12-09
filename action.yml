@@ -4,19 +4,19 @@ branding:
   icon: "upload-cloud"
   color: "blue"
 inputs:
-  rapidapi-api-key:
+  rapidapi_api_key:
     description: "Your RapiAPI API Key"
     required: true
     default: ""
-  rapidapi-api-id:
+  rapidapi_api_id:
     description: "Your RapiAPI API ID"
     required: true
     default: ""
-  openapi-file:
+  openapi_file:
     description: "Your OpenAPI file to use for update"
     required: false
     default: "openapi.json"
-  default-server-url:
+  default_server_url:
     description: "You can provide a default server url"
     required: false
     default: ""

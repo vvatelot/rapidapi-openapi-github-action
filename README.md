@@ -8,15 +8,15 @@ This action updates the OpenAPI documentation of an API that is hosted by RapidA
 
 **Optional** Your RapidAPI API Key.
 
-## `rapidapi-api-id`
+## `rapidapi_api_id`
 
 **Optional** Your RapidAPI API ID.
 
-## `openapi-file`
+## `openapi_file`
 
 **Optional** The OpenAPI file you want to upload. Default `"openapi.json"`.
 
-## `default-server-url`
+## `default_server_url`
 
 **Optional** You can provide a default server url. Default `""`.
 
@@ -40,7 +40,7 @@ jobs:
       uses: vvatelot/rapidapi-openapi-github-action@v1.3.0
       with:
         rapidapi-api-key: ${{ secrets.RAPIDAPI_API_KEY }}
-        rapidapi-api-id: ${{ secrets.RAPIDAPI_API_ID }}
-        openapi-file: "my-openapi.json"
+        rapidapi_api_id: ${{ secrets.RAPIDAPI_API_ID }}
+        openapi_file: "my-openapi.json"
         default-url-server: "https://my.api.com:8001/"
 ```
