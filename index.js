@@ -34,10 +34,10 @@ try {
     data: data
   };
 
-  axios.request(options).then(function (response) {
+  axios.request(options).then(function () {
     console.log("🎉 Open API Documentation updated to RapidAPI");
   }).catch(function (error) {
-    core.setFailed("🚨 Error when updating Open API documentation to RapidAPI: ", error.message);
+    core.setFailed("🚨 Error when uploading Open API documentation to RapidAPI: ", error.message);
   })
 } catch (error) {
   core.setFailed("🚨 Error when updating Open API documentation to RapidAPI: ", error.message);
